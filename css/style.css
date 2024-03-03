@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  overflow-x: hidden;
+}
+/* font rule 
+font-family: 'EB Garamond', serif;
+font-family: 'Oswald', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Protest Strike', sans-serif;
+*/
+/*  navbar*/
+nav {
+  width: 100%;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  background-image: url(../image/caferacer/caferacer2.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 20px 0;
+  color: #d9d9d9;
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 20%;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  background-color: black;
+  transform: translate(100%);
+  transition: all 1s ease-in-out;
+}
+nav ul.slide {
+  transform: translateX(0);
+}
+nav ul li {
+  margin-bottom: 16px;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+}
+nav ul li a {
+  transition: 0.5s;
+  color: #d9d9d9;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+nav ul li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid #262626;
+  border-bottom: 2px solid #262626;
+  transform: scaleY(2);
+  opacity: 0;
+  transition: 0.3s;
+}
+nav ul li:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #262626;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+nav ul li:hover {
+  color: #fff;
+}
+nav ul li:hover:before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+nav ul li:hover:after {
+  transform: scaleY(1);
+  opacity: 1;
+}
+img.logo {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  /* margin: 1px; */
+  height: 100px;
+  width: 200px;
+  /* z-index: 2; */
+}
+/*hamburger menu*/
+.container-menu-toogle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: black;
+  padding: 20px;
+  z-index: 2;
+  transition: all 1s ease-in-out;
+}
+.menu-toogle {
+  display: flex;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+}
+.menu-toogle input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+.menu-toogle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.5s ease-in-out;
+}
+/* hamburger menu animation*/
+.menu-toogle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toogle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toogle input:checked ~ span:nth-child(2) {
+  background-color: white;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toogle input:checked ~ span:nth-child(4) {
+  background-color: white;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toogle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+.container-menu-toogle.menu-open {
+  transform: translateX(-240px);
+}
+/* image*/
+.content {
+  width: 100%;
+  background-color: black;
+  border: 1px solid black;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-content {
+  margin: 0 8px 4px 0;
+  width: 50%;
+}
+.img-content img {
+  width: 100%;
+}
+.deskripsi-content {
+  color: white;
+  width: 50%;
+}
+.deskripsi-content p {
+  padding: 16px;
+  font-size: 32px;
+}
+.deskripsi-content h2 {
+  text-align: center;
+  font-size: 64px;
+}
+.img-tengah {
+  width: 100%;
+  height: 100%;
+  width: 310px;
+  height: 180px;
+  border: none;
+  justify-content: center;
+  text-decoration: none;
+}
+td {
+  width: 25%;
+  height: 20%;
+  border: none;
+}
+.text-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.td-motor {
+  width: 80%;
+  text-align: center;
+}
+.product {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+.product-card {
+  text-align: center;
+  border: 20px solid white;
+  padding-block-start: 2rem;
+}
+.product-image {
+  padding: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.product-image img {
+  height: 15rem;
+  width: 100%;
+}
+.product-teks {
+  text-decoration: none;
+  color: black;
+  font-size: 30px solid;
+  position: relative;
+}
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+}
+.list-container .list-item {
+  position: relative;
+  overflow: hidden;
+}
+.product-image::before,
+.list-container .list-item:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  transition: 0.5s;
+  opacity: 0.5;
+}
+.product-image:hover:before,
+.list-container .list-item:hover:before {
+  top: 0;
+}
+
+.list-container .list-item a p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: white;
+  font-size: 32px;
+}
+.list-container .list-item a img {
+  width: 305px;
+  height: 265px;
+}
+.branding {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+  flex-direction: column;
+}
+.branding img {
+  width: 50%;
+  max-height: 200px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 32px;
+}
+.form button {
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 12px;
+  background-color: black;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.form button:hover {
+  background-color: #262626;
+}
+.form h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+.form-group {
+  display: flex;
+  gap: 48px;
+  width: 100%;
+}
+.form-group .form-input:nth-child(1) {
+  width: 50%;
+}
+.form-group .form-input:nth-child(2) {
+  width: 50%;
+}
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-input textarea,
+.form-input input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+
+/* footer */
+.footer {
+  position: relative;
+}
+.footer p {
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+footer img {
+  max-height: 100px;
+  width: 100%;
+  position: relative;
+}
